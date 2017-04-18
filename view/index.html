@@ -1,1 +1,29 @@
-你好哇，李晓波
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/all.css">
+  <title>书城首页</title>
+</head>
+<body>
+  <div id="root">
+  	<% include include/header.html %>
+  	<div>
+  	  <% include include/index-top.html %>
+  	  <% include include/index-hot.html %>
+  	  <% include include/index-recommend.html %>
+  	  <% include include/index-male.html %>
+  	  <% include include/index-female.html %>
+  	  <% include include/index-free.html %>
+  	  <% include include/index-bottom.html %>
+  	</div>
+  </div>
+
+<script src="/static/script/vue.js" ></script>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/pages/index.js"></script>
+</body>
+</html>
