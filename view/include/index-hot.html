@@ -3,38 +3,23 @@
     <p class="channel-h5__title">本周最火 <i>推</i></p>
   </div>
   <ul class="list-h5">
-  	<li>
+  	<li v-for="item in hot">
   	  <div class="book-h5">
   	  	<div class="book-h5__cover">
-  	  	  <img src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p01C1PdeHt03/uMm1tfqwCkDH6M.jpg!s">
+          <a href="/book">
+    	  	  <img alt="item.title" v-bind:src="item.cover">
+          </a>
   	  	  <p class="book-h5__finish">完结</p>
   	  	</div>
-  	  	<div class="book-h5__info">
-  	  	  <p class="book-h5__title">书名</p>
-  	  	  <p class="book-h5__author">作者</p>
-  	  	  <p class="book-h5__summary">简介</p>
-  	  	  <div class="book-h5-wrap">
-  	  	  	<div class="book-h5__tag">标签</div>
-  	  	  </div>
-  	  	</div>
+    	  	<div class="book-h5__info">
+    	  	  <p class="book-h5__title">{{item.title}}</p>
+    	  	  <p class="book-h5__author">{{item.authors}}</p>
+    	  	  <p class="book-h5__summary">{{item.summary}}</p>
+    	  	  <div class="book-h5-wrap">
+    	  	  	<div class="book-h5__tag" v-for="tag in item.tags">{{tag}}</div>
+    	  	  </div>
+    	  	</div>
   	  </div>
   	</li>
-        <li>
-      <div class="book-h5">
-        <div class="book-h5__cover">
-          <img src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p01C1PdeHt03/uMm1tfqwCkDH6M.jpg!s">
-          <p class="book-h5__finish">完结</p>
-        </div>
-        <div class="book-h5__info">
-          <p class="book-h5__title">书名</p>
-          <p class="book-h5__author">作者</p>
-          <p class="book-h5__summary">简介</p>
-          <div class="book-h5-wrap">
-            <div class="book-h5__tag">标签</div>
-          </div>
-        </div>
-      </div>
-    </li>
-
   </ul>
 </section>

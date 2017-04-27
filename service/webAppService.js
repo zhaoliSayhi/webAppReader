@@ -51,6 +51,20 @@ exports.get_book_data = function(id) {
 	return content;
 }
 
+// chapter 数据
+exports.get_chapter_data = function(id) {
+	var content = fs.readFileSync('./mock/reader/chapter.json', 'utf-8');
+	return content;
+}
+
+exports.get_chapter_content_data = function(id) {
+	if (!id) {
+		id = 1;
+	}
+	var content = fs.readFileSync('./mock/reader/data/data' + id + '.json', 'utf-8');
+	return content;
+}
+
 
 
 

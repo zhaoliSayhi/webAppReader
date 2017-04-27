@@ -1,7 +1,7 @@
  // 路由器 测试rote 指定内容返回
-var koa = require('koa');  // 引入koa
+var koa = require('koa'); 
 var controller = require('koa-route');
-var app = koa();  // 实例化
+var app = koa(); 
 app.use(controller.get('/route_test' , function*() {   // 启动Koa中间件
 	this.set('Cache-Control', 'no-cache');  
 	this.body = "hello koa!";
@@ -33,7 +33,7 @@ app.use(koa_static({
 }));
 
 
-// 首页数据接口
+// 首页全部数据接口
 app.use(controller.get('/ajax/index', function*() {
 	this.set('Cache-Control', 'no-cache');
 	this.body = service.get_index_data();
@@ -134,6 +134,29 @@ app.use(controller.get('/search', function*() {
 	this.set('Cache-Control', 'no-cache');
 	this.body = yield render('search', {title: '搜索'});
 }));
+
+
+// 阅读器页面接口
+app.use(controller.get('/reader', function*(){
+	this.set('Cache-Control', 'no-cache');
+	this.body = yield render('reader');
+}));
+
+// 阅读器章节数据
+app.use(controller.get('/ajax/chapter', function*() {
+	this.set('Cache-Control', 'no-cache');
+	this.body = service.get_chapter_data();
+}))
+app.use(controller.get('/ajax/chapter_data', function*() {
+	this.set('Cache-Control', 'no-cache');
+	var querystring = require('querystring');
+	var params = querystring.parse(this.req._parsedUrl.query);
+	var id = params.id;
+	if (!id) {
+		id = "";
+	}
+	this.body = service.get_chapter_content_data(id);
+}))
 
 app.listen(3000);
 console.log('koa service is started')
